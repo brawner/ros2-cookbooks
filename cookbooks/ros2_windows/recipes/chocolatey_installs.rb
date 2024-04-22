@@ -37,6 +37,7 @@ custom_chocolatey_packages = {
 chocolatey_tinyxml_dependency = {
   "humble" => {"tinyxml-usestl" => "tinyxml-usestl.2.6.2"},
   "iron" => {"tinyxml-usestl" => "tinyxml-usestl.2.6.2"},
+  "jazzy" => {},
   "rolling" => {},
 }.freeze
 

@@ -1,6 +1,7 @@
 openssl_versions = {
   "humble" => "1_1_1L",
   "iron" => "1_1_1L",
+  "jazzy" => "1_1_1L",
   "rolling" => "1_1_1L",
 }.freeze
 
