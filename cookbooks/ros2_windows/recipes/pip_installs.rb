@@ -18,19 +18,13 @@ required_pip_packages = %w[
   pytest-mock
   coverage
   mock
+  psutil
 ]
-
-ros2doctor_network_dependency = {
-  "humble" => "psutil",
-  "iron" => "psutil",
-  "rolling" => "psutil",
-}.freeze
-
-required_pip_packages << ros2doctor_network_dependency[node["ros2_windows"]["ros_distro"]]
 
 ros2cli_network_dependency = {
   "humble" => "netifaces",
   "iron" => "netifaces",
+  "jazzy" => "psutil",
   "rolling" => "psutil",
 }.freeze
 
