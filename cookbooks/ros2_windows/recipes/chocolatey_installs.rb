@@ -22,6 +22,7 @@ choco_packages_and_versions = {
     "cppcheck" => "1.90",
     "curl" => "",
     "git" => "",
+    "openssl" => "3.3.0",
     "vcredist140" => "",
     "vcredist2013" => "",
     "winflexbison3" => "",
@@ -31,6 +32,7 @@ choco_packages_and_versions = {
     "cppcheck" => "1.90",
     "curl" => "",
     "git" => "",
+    "openssl" => "3.3.0",
     "vcredist140" => "",
     "vcredist2013" => "",
     "winflexbison3" => "",
@@ -49,9 +51,15 @@ end
 
 windows_env 'PATH' do
   key_name 'PATH'
-  value 'C:\\Program Files\\Git\\cmd;C:\\Program Files\\CMake\\bin'
+  value 'C:\\Program Files\\Git\\cmd;C:\\Program Files\\CMake\\bin;C:\\Program Files\\OpenSSL-Win64\\bin'
   delim ';'
   action :modify
+end
+
+windows_env 'OPENSSL_CONF' do
+  key_name 'OPENSSL_CONF'
+  value "C:\\Program Files\\OpenSSL-Win64\\bin\\openssl.cfg"
+  action :create
 end
 
 custom_chocolatey_packages = {
