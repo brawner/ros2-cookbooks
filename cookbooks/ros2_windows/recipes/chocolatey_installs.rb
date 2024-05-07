@@ -1,29 +1,50 @@
-%w[git curl vcredist2013 vcredist140 patch winflexbison3].each do |pkg|
-  chocolatey_package pkg do
+choco_packages_and_versions = {
+  "humble" => {
+    "cmake" => "3.24.3",
+    "cppcheck" => "1.90",
+    "curl" => "",
+    "git" => "",
+    "vcredist140" => "",
+    "vcredist2013" => "",
+    "winflexbison3" => "",
+  },
+  "iron" => {
+    "cmake" => "3.24.3",
+    "cppcheck" => "1.90",
+    "curl" => "",
+    "git" => "",
+    "vcredist140" => "",
+    "vcredist2013" => "",
+    "winflexbison3" => "",
+  },
+  "jazzy" => {
+    "cmake" => "3.29.2",
+    "cppcheck" => "1.90",
+    "curl" => "",
+    "git" => "",
+    "vcredist140" => "",
+    "vcredist2013" => "",
+    "winflexbison3" => "",
+  },
+  "rolling" => {
+    "cmake" => "3.29.2",
+    "cppcheck" => "1.90",
+    "curl" => "",
+    "git" => "",
+    "vcredist140" => "",
+    "vcredist2013" => "",
+    "winflexbison3" => "",
+  },
+}.freeze
+
+choco_packages_and_versions.each do |pkgname, version|
+  chocolatey_package pkgname do
+    version version
     options "--debug"
     list_options "--debug"
     retries 20
     retry_delay 10
   end
-end
-
-cmake_versions = {
-  "humble" => "3.24.3",
-  "iron" => "3.24.3",
-  "jazzy" => "3.29.2",
-  "rolling" => "3.29.2",
-}.freeze
-
-chocolatey_package 'cmake' do
-  version cmake_versions[node["ros2_windows"]["ros_distro"]]
-  options "--debug"
-  list_options "--debug"
-  retries 20
-  retry_delay 10
-end
-
-chocolatey_package 'cppcheck' do
-  version '1.90'
 end
 
 windows_env 'PATH' do
