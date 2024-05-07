@@ -41,7 +41,7 @@ choco_packages_and_versions = {
   },
 }.freeze
 
-choco_packages_and_versions.each do |pkgname, version|
+choco_packages_and_versions[node["ros2_windows"]["ros_distro"]].each do |pkgname, version|
   chocolatey_package pkgname do
     version version
     options "--debug"
