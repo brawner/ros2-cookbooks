@@ -7,8 +7,15 @@
   end
 end
 
+cmake_versions = {
+  "humble" => "3.24.3",
+  "iron" => "3.24.3",
+  "jazzy" => "3.29.2",
+  "rolling" => "3.29.2",
+}.freeze
+
 chocolatey_package 'cmake' do
-  version '3.24.3'
+  version cmake_versions[node["ros2_windows"]["ros_distro"]]
   options "--debug"
   list_options "--debug"
   retries 20
