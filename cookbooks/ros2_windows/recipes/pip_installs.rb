@@ -7,6 +7,7 @@ required_pip_packages = %w[
   catkin_pkg
   cryptography
   EmPy
+  fastjsonschema==2.19.0
   jsonschema
   lark-parser
   lxml
