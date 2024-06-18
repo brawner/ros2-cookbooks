@@ -32,11 +32,13 @@ installer_options = base_options + package_arguments
 
 case node['ros2_windows']['vs_release']
 when '2022'
-  visual_studio_source = "https://aka.ms/vs/17/release/vs_#{node['ros2_windows']['vs_version']}.exe"
-  visual_studio_path = "c:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\#{vs_version_camel_case}"
-else 
+  visual_studio_source = 'https://aka.ms/vs/17/release/vs_%s.exe' % node['ros2_windows']['vs_version']
+  visual_studio_path = 'c:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\%s' % vs_version_camel_case
+when '2019' 
   visual_studio_source = 'https://aka.ms/vs/16/release/vs_%s.exe' % node['ros2_windows']['vs_version']
   visual_studio_path = 'c:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\%s' % vs_version_camel_case
+else 
+  raise 'Unsupported Visual Studio version' % node['ros2_windows']['vs_release']
 end
 
 vs_version_camel_case = {
