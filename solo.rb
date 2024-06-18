@@ -1,3 +1,3 @@
-cookbook_path [File.join(File.expand_path(__dir__), 'ros2-cookbooks', 'cookbooks')]
-role_path [File.join(File.expand_path(__dir__), 'ros2-cookbooks', 'roles')]
+cookbook_path [File.join(File.expand_path(__dir__), 'cookbooks')]
+role_path [File.join(File.expand_path(__dir__), 'roles')]
 solo true
