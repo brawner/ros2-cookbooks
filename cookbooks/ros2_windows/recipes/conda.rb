@@ -7,18 +7,18 @@ conda_versions = {
 
 conda_version = conda_versions[node["ros2_windows"]["ros_distro"]]
 
-conda_dir = "C:\\Anaconda3"
+conda_dir = "C:\\Miniforge3"
 
 if conda_version != nil
     windows_package 'conda' do
-        source "https://repo.anaconda.com/archive/Anaconda3-#{conda_version}-Windows-x86_64.exe"
+        source "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Windows-x86_64.exe"
         options "/S /InstallType=JustMe /RegisterPython=0 /AddToPath=1 /D=#{conda_dir}"
     end
 end
 
 windows_env 'PATH' do
     key_name 'PATH'
-    value 'C:\\Anaconda3\\condabin'
+    value 'C:\\Miniforge3\\condabin'
     delim ';'
     action :modify
 end
