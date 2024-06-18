@@ -30,7 +30,14 @@ base_options = '--quiet --wait --norestart '
 
 installer_options = base_options + package_arguments
 
-visual_studio_source = 'https://aka.ms/vs/16/release/vs_%s.exe' % node['ros2_windows']['vs_version']
+case node['ros2_windows']['vs_release']
+when '2022'
+  visual_studio_source = 'https://aka.ms/vs/17/release/vs_%s.exe' % node['ros2_windows']['vs_version']
+  visual_studio_path = 'c:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\%s' % vs_version_camel_case
+else 
+  visual_studio_source = 'https://aka.ms/vs/16/release/vs_%s.exe' % node['ros2_windows']['vs_version']
+  visual_studio_path = 'c:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\%s' % vs_version_camel_case
+end
 
 vs_version_camel_case = {
   'buildtools' => 'BuildTools',
@@ -39,7 +46,6 @@ vs_version_camel_case = {
   'enterprise' => 'Enterprise'
 }[node['ros2_windows']['vs_version']]
 
-visual_studio_path = 'c:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\%s' % vs_version_camel_case
 windows_package 'Update VS' do
   source visual_studio_source
   installer_type :custom
