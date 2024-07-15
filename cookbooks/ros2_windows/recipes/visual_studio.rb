@@ -30,6 +30,13 @@ base_options = '--quiet --wait --norestart '
 
 installer_options = base_options + package_arguments
 
+vs_version_camel_case = {
+  'buildtools' => 'BuildTools',
+  'community' => 'Community',
+  'professional' => 'Professional',
+  'enterprise' => 'Enterprise'
+}[node['ros2_windows']['vs_version']]
+
 case node['ros2_windows']['vs_release']
 when '2022'
   visual_studio_source = 'https://aka.ms/vs/17/release/vs_%s.exe' % node['ros2_windows']['vs_version']
@@ -41,12 +48,6 @@ else
   raise "Unsupported Visual Studio version: #{node['ros2_windows']['vs_release']}"
 end
 
-vs_version_camel_case = {
-  'buildtools' => 'BuildTools',
-  'community' => 'Community',
-  'professional' => 'Professional',
-  'enterprise' => 'Enterprise'
-}[node['ros2_windows']['vs_version']]
 
 windows_package 'Update VS' do
   source visual_studio_source
