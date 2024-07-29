@@ -41,9 +41,11 @@ case node['ros2_windows']['vs_release']
 when '2022'
   visual_studio_source = 'https://aka.ms/vs/17/release/vs_%s.exe' % node['ros2_windows']['vs_version']
   visual_studio_path = 'c:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\%s' % vs_version_camel_case
+  vc_target_path = 'MSBuild\\Microsoft\\VC\\v170\\'
 when '2019' 
   visual_studio_source = 'https://aka.ms/vs/16/release/vs_%s.exe' % node['ros2_windows']['vs_version']
   visual_studio_path = 'c:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\%s' % vs_version_camel_case
+  vc_target_path = 'MSBuild\\Microsoft\\VC\\v160\\'
 else 
   raise "Unsupported Visual Studio version: #{node['ros2_windows']['vs_release']}"
 end
@@ -70,6 +72,6 @@ end
 
 windows_env 'VCTargetsPath' do
   key_name 'VCTargetsPath'
-  value File.join(visual_studio_path, 'MSBuild\\Microsoft\\VC\\v160\\')
+  value File.join(visual_studio_path, vc_target_path)
   action :create
 end
