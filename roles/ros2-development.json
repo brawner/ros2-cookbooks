@@ -7,11 +7,12 @@
       "development": "true",
       "download_sources": "true",
       "vs_version": "buildtools",
+      "vs_release": "2019",
       "source": {
         "ros2.repos": "rolling"
       },
       "ros2_ws": "C:/dev/ros2_ws",
-      "install_connext": "false",
+      "install_connext": "false"
     }
   },
   "chef_type": "role",
