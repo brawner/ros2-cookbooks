@@ -21,7 +21,7 @@ In powershell, install Cinc's chef distribution:
 In same shell, install chocolatey, git and the chefdk tools (primarily for `berks`).
 ```
 > Set-ExecutionPolicy Bypass -Scope Process -Force;. { iwr -useb https://chocolatey.org/install.ps1 } | iex
-> choco install -y git chefdk
+> choco install -y git chef-workstation
 > restart-computer
 ```
 
