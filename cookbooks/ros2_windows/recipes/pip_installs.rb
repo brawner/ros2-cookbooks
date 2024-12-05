@@ -13,7 +13,6 @@ required_pip_packages = %w[
   lxml
   numpy
   opencv-python
-  pyparsing
   pyyaml
   pytest
   pytest-mock
@@ -30,6 +29,15 @@ ros2cli_network_dependency = {
 }.freeze
 
 required_pip_packages << ros2cli_network_dependency[node["ros2_windows"]["ros_distro"]]
+
+pyparsing_dependency = {
+  "humble" => "pyparsing==2.4.7",
+  "iron" => "pyparsing==2.4.7",
+  "jazzy" => "pyparsing==3.1.1",
+  "rolling" => "pyparsing==3.1.1",
+}
+
+required_pip_packages << pyparsing_dependency[node["ros2_windows"]["ros_distro"]]
 
 development_pip_packages = %w[
   flake8
