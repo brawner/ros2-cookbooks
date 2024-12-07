@@ -3,8 +3,26 @@ required_pip_packages = %w[
   PyQt5==5.15.0
   argcomplete==1.8.1
   vcstool
-  colcon-common-extensions
   catkin_pkg
+  colcon-bash
+  colcon-cmake
+  colcon-core
+  colcon-defaults
+  colcon-library-path
+  colcon-metadata
+  colcon-mixin
+  colcon-output
+  colcon-package-information
+  colcon-package-selection
+  colcon-parallel-executor
+  colcon-pkg-config
+  colcon-powershell
+  colcon-python-setup-py
+  colcon-recursive-crawl
+  colcon-ros
+  colcon-ros-domain-id-coordinator
+  colcon-test-result
+  colcon-zsh
   cryptography
   EmPy
   fastjsonschema==2.19.0
