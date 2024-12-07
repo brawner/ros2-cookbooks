@@ -27,7 +27,6 @@ ros2cli_network_dependency = {
   "jazzy" => "psutil",
   "rolling" => "psutil",
 }.freeze
-
 required_pip_packages << ros2cli_network_dependency[node["ros2_windows"]["ros_distro"]]
 
 pyparsing_dependency = {
@@ -36,8 +35,15 @@ pyparsing_dependency = {
   "jazzy" => "pyparsing==3.1.1",
   "rolling" => "pyparsing==3.1.1",
 }
-
 required_pip_packages << pyparsing_dependency[node["ros2_windows"]["ros_distro"]]
+
+pyqt5_sip_dependency = {
+  "humble" => "PyQt5-sip==12.9.1",
+  "iron" => "PyQt5-sip==12.9.1",
+  "jazzy" => "PyQt5-sip==12.13.0",
+  "rolling" => "PyQt5-sip==12.13.0",
+}
+required_pip_packages << pyqt5_sip_dependency[node["ros2_windows"]["ros_distro"]]
 
 development_pip_packages = %w[
   flake8
