@@ -24,7 +24,7 @@ required_pip_packages = %w[
   colcon-test-result
   colcon-zsh
   cryptography
-  EmPy
+  EmPy==3.3.4
   fastjsonschema==2.19.0
   jsonschema
   lark-parser
@@ -37,6 +37,7 @@ required_pip_packages = %w[
   coverage
   mock
   psutil
+  pywin32
 ]
 
 ros2cli_network_dependency = {
@@ -51,7 +52,7 @@ pyparsing_dependency = {
   "humble" => "pyparsing==2.4.7",
   "iron" => "pyparsing==2.4.7",
   "jazzy" => "pyparsing==3.1.1",
-  "rolling" => "pyparsing==3.1.1",
+  "rolling" => "pyparsing==3.1.4",
 }
 required_pip_packages << pyparsing_dependency[node["ros2_windows"]["ros_distro"]]
 
