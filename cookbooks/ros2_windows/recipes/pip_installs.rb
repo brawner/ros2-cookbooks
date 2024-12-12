@@ -24,7 +24,7 @@ required_pip_packages = %w[
   colcon-test-result
   colcon-zsh
   cryptography
-  EmPy==3.3.4
+  EmPy<4
   fastjsonschema==2.19.0
   jsonschema
   lark-parser
