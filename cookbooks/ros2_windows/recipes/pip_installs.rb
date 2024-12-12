@@ -88,7 +88,7 @@ end
 
 execute 'pip_required' do
   command lazy {
-    "#{node.run_state[:python_dir]}\\python.exe -m pip install -U #{required_pip_packages.join(' ')}"
+    "#{node.run_state[:python_dir]}\\python.exe -m pip install -U \"#{required_pip_packages.join('" "')}\""
   }
 end
 
